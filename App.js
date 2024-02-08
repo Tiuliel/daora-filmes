@@ -21,11 +21,11 @@ export default function App() {
           <Text>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
         </View>
         <View style={estilos.viewBotoes}>
-          <Pressable>
-            <Text>Buscar Filmes</Text>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textoBotao}>Buscar Filmes</Text>
           </Pressable>
-          <Pressable>
-            <Text>Favoritos</Text>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textoBotao}>Favoritos</Text>
           </Pressable>
         </View>
         <View style={estilos.viewRodape}>
