@@ -1,5 +1,6 @@
 import {
   Button,
+  Image,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -7,12 +8,15 @@ import {
   View,
 } from "react-native";
 
+import logo from "./assets/images/logo.png";
+
 export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={estilos.container}>
         <View style={estilos.viewLogo}>
+          <Image source={logo} style={estilos.logo} />
           <Text>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
         </View>
         <View style={estilos.viewBotoes}>
