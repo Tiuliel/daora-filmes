@@ -1,6 +1,7 @@
 import {
   Button,
   Image,
+  Pressable,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -20,8 +21,7 @@ export default function App() {
           <Text>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
         </View>
         <View style={estilos.viewBotoes}>
-          <Button title="Buscar Filmes" />
-          <Button title="Favoritos" />
+          <Pressable></Pressable>
         </View>
         <View style={estilos.viewRodape}>
           <Button title="Privacidade" />
@@ -34,18 +34,22 @@ export default function App() {
 
 const estilos = StyleSheet.create({
   container: {
-    backgroundColor: "yellow",
+    backgroundColor: "white",
     flex: 1,
   },
 
   viewLogo: {
     width: "90%",
-    backgroundColor: "green",
     flex: 0.5,
     marginLeft: "auto",
     marginRight: "auto",
     justifyContent: "flex-end",
     alignItems: "center",
+  },
+
+  logo: {
+    width: 128,
+    height: 128,
   },
 
   viewBotoes: {
