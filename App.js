@@ -21,7 +21,12 @@ export default function App() {
           <Text>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
         </View>
         <View style={estilos.viewBotoes}>
-          <Pressable></Pressable>
+          <Pressable>
+            <Text>Buscar Filmes</Text>
+          </Pressable>
+          <Pressable>
+            <Text>Favoritos</Text>
+          </Pressable>
         </View>
         <View style={estilos.viewRodape}>
           <Button title="Privacidade" />
