@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView>
+        <Text>App</Text>
+      </SafeAreaView>
+    </>
   );
 }
 
