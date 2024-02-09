@@ -12,14 +12,39 @@ import {
 import logo from "./assets/images/logo.png";
 import { Ionicons } from "@expo/vector-icons";
 
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
+
+/* manter a tela splash visível enquanto não programarmos a ação de ocultar */
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    "Monoton-Regular": require("./assets/fonts/Monoton-Regular.ttf"),
+  });
+
+  /* Função atrelada ao hook useCallback.
+  Quando uma função estã conectada ao useCallback, garantimos que a referência dela é armazenada na memória somente uma vez */
+  const aoAtualizarLayout = useCallback(async () => {
+    /* Se estiver tudo ok com o carregamento */
+    if (fontsLoaded || fontError) {
+      /* Escondemos a splashscreen */
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={estilos.container}>
+      <SafeAreaView style={estilos.container} onLayout={aoAtualizarLayout}>
         <View style={estilos.viewLogo}>
           <Image source={logo} style={estilos.logo} />
-          <Text>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
+          <Text style={estilos.titulo}>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
         </View>
         <View style={estilos.viewBotoes}>
           <Pressable style={estilos.botao}>
@@ -64,6 +89,11 @@ const estilos = StyleSheet.create({
     height: 128,
   },
 
+  titulo: {
+    fontFamily: "Monoton-Regular",
+    fontSize: 36,
+    color: "#5a51a6",
+  },
   viewBotoes: {
     width: "90%",
     justifyContent: "space-around",
