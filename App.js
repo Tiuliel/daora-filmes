@@ -45,7 +45,7 @@ export default function App() {
       <SafeAreaView style={estilos.container} onLayout={aoAtualizarLayout}>
         <View style={estilos.viewLogo}>
           <Image source={logo} style={estilos.logo} />
-          <Text style={estilos.titulo}>@TiuLiel Movies 🎞🎥📽🎬📺</Text>
+          <Text style={estilos.titulo}>@TiuLiel Movies 🎥</Text>
         </View>
         <View style={estilos.viewBotoes}>
           <Pressable style={estilos.botao}>
@@ -62,8 +62,18 @@ export default function App() {
           </Pressable>
         </View>
         <View style={estilos.viewRodape}>
-          <Button title="Privacidade" />
-          <Button title="Sobre" />
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="lock-closed" size={16} color="white" />
+              {""} Privacidade
+            </Text>
+          </Pressable>
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="information-circle" size={16} color="white" />
+              {""} Sobre
+            </Text>
+          </Pressable>
         </View>
       </SafeAreaView>
     </>
@@ -92,7 +102,7 @@ const estilos = StyleSheet.create({
 
   titulo: {
     fontFamily: "Monoton-Regular",
-    fontSize: 36,
+    fontSize: 30,
     color: "#5a51a6",
   },
   viewBotoes: {
@@ -118,13 +128,17 @@ const estilos = StyleSheet.create({
     fontSize: 16,
   },
   viewRodape: {
-    width: "90%",
-    backgroundColor: "red",
+    width: "100%",
+    backgroundColor: "#5451a6",
     justifyContent: "space-between",
     marginLeft: "auto",
     marginRight: "auto",
     flexDirection: "row",
     alignItems: "center",
     flex: 0.1,
+  },
+
+  botaoRodape: {
+    padding: 16,
   },
 });
