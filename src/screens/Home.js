@@ -11,7 +11,10 @@ export default function Home({ navigation }) {
         <Text style={estilos.titulo}>@TiuLiel Movies 🎥</Text>
       </View>
       <View style={estilos.viewBotoes}>
-        <Pressable style={estilos.botao}>
+        <Pressable
+          style={estilos.botao}
+          onPress={() => navigation.navigate("BuscarFilmes")}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="search-sharp" size={12} color="white" />
             Buscar Filmes
