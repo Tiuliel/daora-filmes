@@ -31,6 +31,8 @@ export default function BuscarFilmes() {
           <TextInput
             style={estilos.input}
             onChangeText={onChangeText}
+            enterKeyHint="search"
+            onSubmitEditing={procurar}
             value={text}
             placeholder="Digite o filme"
           />
