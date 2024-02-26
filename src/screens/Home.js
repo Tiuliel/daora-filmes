@@ -3,7 +3,7 @@ import SafeContainer from "../components/SafeContainer";
 import logo from "../../assets/images/logo.png";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <SafeContainer>
       <View style={estilos.viewLogo}>
@@ -25,13 +25,19 @@ export default function Home() {
         </Pressable>
       </View>
       <View style={estilos.viewRodape}>
-        <Pressable style={estilos.botaoRodape}>
+        <Pressable
+          style={estilos.botaoRodape}
+          onPress={() => navigation.navigate("Privacidade")}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="lock-closed" size={16} color="white" />
             {""} Privacidade
           </Text>
         </Pressable>
-        <Pressable style={estilos.botaoRodape}>
+        <Pressable
+          style={estilos.botaoRodape}
+          onPress={() => navigation.navigate("Sobre")}
+        >
           <Text style={estilos.textoBotao}>
             <Ionicons name="information-circle" size={16} color="white" />
             {""} Sobre
