@@ -11,18 +11,19 @@ import SafeContainer from "../components/SafeContainer";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 
-export default function BuscarFilmes() {
-  const [text, onChangeText] = React.useState("");
+export default function BuscarFilmes({ navigation }) {
+  const [filme, setFilme] = React.useState("");
 
   const filmeDigitado = (valorDigitado) => {
     setFilme(valorDigitado);
   };
 
   const procurar = () => {
-    if (text === "") {
+    if (!filme) {
       Vibration.vibrate(1000);
       Alert.alert("Ops! você deve digitar um filme!");
-    } else Alert.alert("Você procurou por:", `${text}`);
+    }
+    navigation.navigate("Resultados", { filme });
   };
 
   return (
@@ -34,10 +35,9 @@ export default function BuscarFilmes() {
           <Ionicons name="film-sharp" size={30} color="#5451a6" />
           <TextInput
             style={estilos.input}
-            onChangeText={onChangeText}
+            onChangeText={filmeDigitado}
             enterKeyHint="search"
             onSubmitEditing={procurar}
-            value={text}
             placeholder="Digite o filme"
             placeholderTextColor="#5151a6"
             autoFocus

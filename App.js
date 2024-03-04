@@ -6,6 +6,7 @@ import Home from "./src/screens/Home";
 import Sobre from "./src/screens/Sobre";
 import Privacidade from "./src/screens/Privacidade";
 import BuscarFilmes from "./src/screens/BuscarFilmes";
+import Resultados from "./src/screens/Resultados";
 
 //Criação/inicialização do mecanismo Stack
 
@@ -40,6 +41,7 @@ export default function App() {
             options={{ title: "Qual filme quer pesquisar ?" }}
           />
           <Stack.Screen name="Privacidade" component={Privacidade} />
+          <Stack.Screen name="Resultados" component={Resultados} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
