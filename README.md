@@ -1,6 +1,16 @@
-# Daora Filmes
+# Caixa de Letra
 
-Wxwmplo de app nativo multiplataforma criado com React Native e Expo.
+Exemplo de app nativo multiplataforma criado com React Native e Expo.
+
+## Branch 05-desafio--tela-BuscarFilmes
+
+### Solução: recursos utilizados
+
+- Componentes/Recursos nativos: `TextInput`, `Vibration` e `Alert`
+- Eventos:
+  - `onChangeText` no `TextInput` para captura em tempo real do nome do filme digitado e atualização no `state` usando a função `filmeDigitado`
+  - `onPress` no `Button` para acionamento da função `pesquisar`
+  - `onSubmitEditing` no `TextInput` para acionamento da função `buscarFilmes`
 
 ## Branch 04
 
@@ -23,9 +33,7 @@ Dependências para navegação:
 
 `npx expo install react-native-screens react-native-safe-area-context`
 
-Mecanismo de navegação Stack
-
-`npm install @react-navigation/native-stack`
+Mecanismo de navegação Stack: `npm install @react-navigation/native-stack`
 
 ### Configurações
 
@@ -52,8 +60,8 @@ Para mais detalhes sobre o processo veja a documentação do Expo Fonts e do Exp
 - https://docs.expo.dev/versions/latest/sdk/font/
 - https://docs.expo.dev/versions/latest/sdk/splash-screen/
 
-Exemplo de app nativo multiplataforma criado com React Native e Expo
+---
 
 ## Dica
 
-Instale a extensão **ES7+ React...** no VSCode para facilitar a programação a progração de componentes
+Instale a extensão **ES7+ React...** no VSCode para facilitar a programação de componentes.
