@@ -14,6 +14,10 @@ import React from "react";
 export default function BuscarFilmes() {
   const [text, onChangeText] = React.useState("");
 
+  const filmeDigitado = (valorDigitado) => {
+    setFilme(valorDigitado);
+  };
+
   const procurar = () => {
     if (text === "") {
       Vibration.vibrate(1000);
@@ -35,6 +39,8 @@ export default function BuscarFilmes() {
             onSubmitEditing={procurar}
             value={text}
             placeholder="Digite o filme"
+            placeholderTextColor="#5151a6"
+            autoFocus
           />
         </View>
         <Button title="Procurar" color="#5154a6" onPress={procurar} />
