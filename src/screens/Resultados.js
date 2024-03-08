@@ -1,4 +1,10 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { api, apiKey } from "../services/api-mviedb";
 import { useEffect, useState, usuState } from "react";
@@ -8,6 +14,7 @@ import Erro from "../components/Erro";
 
 export default function Resultados({ route }) {
   const [resultados, setResultados] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { filme } = route.params;
 
   useEffect(() => {
@@ -23,6 +30,7 @@ export default function Resultados({ route }) {
         });
 
         setResultados(resposta.data.results);
+        setLoading(false);
       } catch (error) {
         console.error("Deu ruim: " + error.message);
       }
@@ -34,17 +42,22 @@ export default function Resultados({ route }) {
     <SafeContainer>
       <View style={estilos.subContainer}>
         <Text style={estilos.texto}>Você buscou por: {filme}</Text>
-        <View style={estilos.viewFilmes}>
-          <FlatList
-            data={resultados}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => {
-              return <CardFilme filme={item} />;
-            }}
-            ListEmptyComponent={Erro}
-            ItemSeparatorComponent={Separador}
-          />
-        </View>
+
+        {loading && <ActivityIndicator size="large" color="#5451a6" />}
+
+        {!loading && (
+          <View style={estilos.viewFilmes}>
+            <FlatList
+              data={resultados}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => {
+                return <CardFilme filme={item} />;
+              }}
+              ListEmptyComponent={Erro}
+              ItemSeparatorComponent={Separador}
+            />
+          </View>
+        )}
       </View>
     </SafeContainer>
   );
