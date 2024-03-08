@@ -6,16 +6,21 @@ export default function CardFilme({ filme }) {
   const { title, poster_path } = filme;
   return (
     <View style={estilos.card}>
-      <Image style={estilos.imagem} source={imagemAlternativa} />
+      <Image
+        resizeMode="cover"
+        style={estilos.imagem}
+        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+      />
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
-        <View style={estilos.botoes}></View>
-        <Pressable style={estilos.botoes}>
-          <Text style={estilos.textoBotao}> Leia mais</Text>
-        </Pressable>
-        <Pressable style={estilos.botoes}>
-          <Text style={estilos.textoBotao}> Salvar</Text>
-        </Pressable>
+        <View style={estilos.botoes}>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textoBotao}> Leia mais</Text>
+          </Pressable>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textoBotao}> Salvar</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
