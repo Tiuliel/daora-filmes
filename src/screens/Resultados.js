@@ -20,7 +20,6 @@ export default function Resultados({ route }) {
           },
         });
 
-        /* Adicionando os resultados ao state */
         setResultados(resposta.data.results);
       } catch (error) {
         console.error("Deu ruim: " + error.message);
@@ -40,6 +39,8 @@ export default function Resultados({ route }) {
             renderItem={({ item }) => {
               return <CardFilme filme={item} />;
             }}
+            ListEmptyComponent={() => <Text> Nenhum filme localizado</Text>}
+            ItemSeparatorComponent={() => <Text> *****</Text>}
           />
         </View>
       </View>
