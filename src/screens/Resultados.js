@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { api, apiKey } from "../services/api-mviedb";
 import { useEffect, useState, usuState } from "react";
+import CardFilme from "../components/CardFilme";
 
 export default function Resultados({ route }) {
   const [resultados, setResultados] = useState([]);
@@ -37,7 +38,7 @@ export default function Resultados({ route }) {
             data={resultados}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
-              return <Text>{item.title}</Text>;
+              return <CardFilme filme={item} />;
             }}
           />
         </View>
