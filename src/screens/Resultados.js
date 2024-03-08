@@ -3,6 +3,8 @@ import SafeContainer from "../components/SafeContainer";
 import { api, apiKey } from "../services/api-mviedb";
 import { useEffect, useState, usuState } from "react";
 import CardFilme from "../components/CardFilme";
+import Separador from "../components/Separador";
+import Erro from "../components/Erro";
 
 export default function Resultados({ route }) {
   const [resultados, setResultados] = useState([]);
@@ -39,8 +41,8 @@ export default function Resultados({ route }) {
             renderItem={({ item }) => {
               return <CardFilme filme={item} />;
             }}
-            ListEmptyComponent={() => <Text> Nenhum filme localizado</Text>}
-            ItemSeparatorComponent={() => <Text> *****</Text>}
+            ListEmptyComponent={Erro}
+            ItemSeparatorComponent={Separador}
           />
         </View>
       </View>
