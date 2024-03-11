@@ -2,9 +2,12 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CardFilme({ filme }) {
   const { title, poster_path } = filme;
+
+  const navigation = useNavigation();
   return (
     <View style={estilos.card}>
       <Image
@@ -19,7 +22,10 @@ export default function CardFilme({ filme }) {
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
-          <Pressable style={estilos.botao}>
+          <Pressable
+            style={estilos.botao}
+            onPress={() => navigation.navigate("Detalhes")}
+          >
             <Text style={estilos.textoBotao}>
               <Ionicons name="book" size={12} />
               Leia mais
