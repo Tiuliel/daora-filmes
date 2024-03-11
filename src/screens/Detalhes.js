@@ -29,12 +29,18 @@ export default function Detalhes({ route }) {
         <View style={estilos.conteudo}>
           <ScrollView>
             <Text style={[estilos.texto, estilos.avaliacao]}>
-              Nota: {vote_average}
+              Avaliação: {vote_average}
             </Text>
             <Text style={[estilos.texto, estilos.lancamento]}>
-              Data: {moment(release_date).format("DD/MM/yyyy")}
+              Lançamento:{" "}
+              {release_date
+                ? moment(release_date).format("DD/MM/yyyy")
+                : "Indisponivel"}
             </Text>
-            <Text style={[estilos.texto, estilos.descricao]}>{overview}</Text>
+            <Text style={[estilos.texto, estilos.descricao]}>
+              {overview} ||{" "}
+              <Text style={{ fontStyle: "italic" }}>Filme sem descrição</Text>
+            </Text>
           </ScrollView>
         </View>
       </View>
