@@ -1,6 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function CardFilme({ filme }) {
   const { title, poster_path } = filme;
@@ -9,16 +10,26 @@ export default function CardFilme({ filme }) {
       <Image
         resizeMode="cover"
         style={estilos.imagem}
-        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+        source={
+          poster_path
+            ? { uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }
+            : imagemAlternativa
+        }
       />
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}> {title} </Text>
         <View style={estilos.botoes}>
           <Pressable style={estilos.botao}>
-            <Text style={estilos.textoBotao}> Leia mais</Text>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="book" size={12} />
+              Leia mais
+            </Text>
           </Pressable>
           <Pressable style={estilos.botao}>
-            <Text style={estilos.textoBotao}> Salvar</Text>
+            <Text style={estilos.textoBotao}>
+              {" "}
+              <Ionicons name="add-circle" size={12} /> Salvar
+            </Text>
           </Pressable>
         </View>
       </View>
