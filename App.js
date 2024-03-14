@@ -1,4 +1,4 @@
-import { StatusBar } from "react-native";
+import { Button, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -43,7 +43,21 @@ export default function App() {
           />
           <Stack.Screen name="Privacidade" component={Privacidade} />
           <Stack.Screen name="Resultados" component={Resultados} />
-          <Stack.Screen name="Detalhes" component={Detalhes} />
+          <Stack.Screen
+            name="Detalhes"
+            component={Detalhes}
+            options={({ navigation }) => {
+              return {
+                headerRight: () => (
+                  <Button
+                    color="black"
+                    onPress={() => navigation.navigate("Home")}
+                    title="Home"
+                  />
+                ),
+              };
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
