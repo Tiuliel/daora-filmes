@@ -3,6 +3,7 @@ import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function CardFilme({ filme }) {
   const { title, poster_path } = filme;
@@ -11,16 +12,14 @@ export default function CardFilme({ filme }) {
     /* Alert.alert("Favoritos", "Salvando..."); */
 
     try {
-      /* 1) Verificar/carregar os favoritos armazenados no AsyncStorage
-      
-      2) Verificar/criar uma lista de filmes favoritos (dados)
+      /* 1) Verificar/carregar os favoritos armazenados no AsyncStorage. Usamos o getItem do AsyncStorage para analisar se existe um armazenamento com o nome indicado (@favoritosdaora). Existindo, ele é carregado para a const filmeFavoritos. Se não existir, será criado posteriormente*/
+      const filmesFavoritos = await AsyncStorage.getItem("@favoritosdaora");
 
-      3) VerificAR se já tem algum filme na lista
-
-      4) se o filme não estiver na lista, então vamos colocá-lo
-
-      5) Usamos o AsyncStorage para gravar no armazenamento offline do dispositivo
-      */
+      /*2) Verificar/criar uma lista de filmes favoritos (dados)*/
+      /*3) VerificAR se já tem algum filme na lista*/
+      /*4) se o filme não estiver na lista, então vamos colocá-lo*/
+      /*5) Usamos o AsyncStorage para gravar no armazenamento offline do dispositivo
+       */
     } catch (error) {
       Alert.alert("Erro", "Ocorreu um erro ao salvar o filme...");
     }
