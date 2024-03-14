@@ -42,17 +42,21 @@ export default function CardFilme({ filme }) {
       /* 4.1) se ja tem filme, avisaremos ao usuário*/
       if (jaTemFilme) {
         Alert.alert("Ops!", "Você já salvou este filme!");
-        Vibration.vibrate();
+        Vibration.vibrate(500);
         return;
       }
       /* 4.2) senão, vamos colocar na lista */
+      listaDeFilmes.push(filme);
+
       /*5) Usamos o AsyncStorage para gravar no armazenamento offline do dispositivo
        */
       await AsyncStorage.setItem(
-        "@favoritodaora",
+        "@favoritosdaora",
         JSON.stringify(listaDeFilmes)
       );
+      Alert.alert("Favoritos", `${title} foi salvo com sucesso!`);
     } catch (error) {
+      console.log("Erro: " + error);
       Alert.alert("Erro", "Ocorreu um erro ao salvar o filme...");
     }
   };
