@@ -85,5 +85,18 @@ const estilos = StyleSheet.create({
 
   textoBotao: {
     color: "red",
+    borderRadius: 4,
   },
+  textoBotao: { color: "red" },
+  item: {
+    padding: 12,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#eee8fc",
+    marginBottom: 8,
+    borderRadius: 4,
+    alignItems: "center",
+  },
+  botaoFilme: { flex: 1 },
+  titulo: { fontSize: 14 },
 });
