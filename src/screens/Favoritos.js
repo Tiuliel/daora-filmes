@@ -28,14 +28,31 @@ export default function Favoritos({ navigation }) {
     };
     carregarFavoritos();
   }, []);
-  console.log(listaFavoritos);
+
+  const excluirTodosFavoritos = async () => {
+    Alert.alert(
+      "Excluir TODOS?",
+      "Tem ctz que deseja excluir TODOS os favoritos",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        { text: "Sim, manda ver", style: "destructive" },
+      ]
+    );
+  };
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
         <View style={estilos.viewFavoritos}>
           <Text style={estilos.texto}>Quantidade: {listaFavoritos.length}</Text>
 
-          <Pressable style={estilos.botaoExcluirFavoritos}>
+          <Pressable
+            onPress={excluirTodosFavoritos}
+            style={estilos.botaoExcluirFavoritos}
+          >
             <Text style={estilos.textoBotao}>
               <Ionicons name="trash-outline" size={16} /> Excluir favoritos
             </Text>
