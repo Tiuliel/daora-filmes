@@ -38,7 +38,14 @@ export default function Favoritos({ navigation }) {
           text: "Cancelar",
           style: "cancel",
         },
-        { text: "Sim, manda ver", style: "destructive" },
+        {
+          text: "Sim, manda ver",
+          style: "destructive",
+          onPress: async () => {
+            await AsyncStorage.removeItem("@favoritosdaora");
+            setListaFavoritos([]);
+          },
+        },
       ]
     );
   };
@@ -61,7 +68,7 @@ export default function Favoritos({ navigation }) {
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((filme) => {
             return (
-              <View style={estilos.item}>
+              <View key={filme.id} style={estilos.item}>
                 <Pressable
                   onPress={() => {
                     navigation.navigate("Detalhes", { filme });
