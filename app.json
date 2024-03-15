@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-dahora.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tiuliel.daorafilmes"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "516bb2d7-de67-4ca9-a274-0f482cd8a5db"
+      }
+    }
   }
 }
