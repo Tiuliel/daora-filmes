@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Favoritos() {
+export default function Favoritos({ navigation }) {
   const [listaFavoritos, setListaFavoritos] = useState([]);
 
   useEffect(() => {
@@ -45,7 +45,12 @@ export default function Favoritos() {
           {listaFavoritos.map((filme) => {
             return (
               <View style={estilos.item}>
-                <Pressable style={estilos.botaofilme}>
+                <Pressable
+                  onPress={() => {
+                    navigation.navigate("Detalhes", { filme });
+                  }}
+                  style={estilos.botaofilme}
+                >
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
                 <Pressable style={estilos.botaoExcluir}>
