@@ -50,7 +50,16 @@ export default function Favoritos({ navigation }) {
     );
   };
 
-  const excluir = async () => {};
+  const excluir = async (filmeId) => {
+    const novaListaFavoritos = listaFavoritos.filter(
+      (filme) => filme.id !== filmeId
+    );
+    setListaFavoritos(novaListaFavoritos);
+    await AsyncStorage.setItem(
+      "@favoritosdaora",
+      JSON.stringify(novaListaFavoritos)
+    );
+  };
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
@@ -80,7 +89,10 @@ export default function Favoritos({ navigation }) {
                 >
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
-                <Pressable onPress={excluir} style={estilos.botaoExcluir}>
+                <Pressable
+                  onPress={() => excluir(filme.id)}
+                  style={estilos.botaoExcluir}
+                >
                   <Ionicons color="white" name="trash" size={16} />
                 </Pressable>
               </View>
