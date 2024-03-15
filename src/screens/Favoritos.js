@@ -50,20 +50,23 @@ export default function Favoritos({ navigation }) {
     );
   };
 
+  const excluir = async () => {};
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
         <View style={estilos.viewFavoritos}>
           <Text style={estilos.texto}>Quantidade: {listaFavoritos.length}</Text>
 
-          <Pressable
-            onPress={excluirTodosFavoritos}
-            style={estilos.botaoExcluirFavoritos}
-          >
-            <Text style={estilos.textoBotao}>
-              <Ionicons name="trash-outline" size={16} /> Excluir favoritos
-            </Text>
-          </Pressable>
+          {listaFavoritos.length > 0 && (
+            <Pressable
+              onPress={excluirTodosFavoritos}
+              style={estilos.botaoExcluirFavoritos}
+            >
+              <Text style={estilos.textoBotao}>
+                <Ionicons name="trash-outline" size={16} /> Excluir favoritos
+              </Text>
+            </Pressable>
+          )}
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((filme) => {
@@ -77,7 +80,7 @@ export default function Favoritos({ navigation }) {
                 >
                   <Text style={estilos.titulo}>{filme.title}</Text>
                 </Pressable>
-                <Pressable style={estilos.botaoExcluir}>
+                <Pressable onPress={excluir} style={estilos.botaoExcluir}>
                   <Ionicons color="white" name="trash" size={16} />
                 </Pressable>
               </View>
