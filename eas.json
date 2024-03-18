@@ -10,7 +10,13 @@
     "preview": {
       "distribution": "internal",
       "developmentClient": true,
-      "android": { "buildType": "apk", "gradleCommand": ":app:assembleRelease" }
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_KEY": "b3fe8fb89e7332360bd15ca4c6950658"
+      }
     },
     "production": {}
   },
